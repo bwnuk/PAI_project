@@ -1,5 +1,6 @@
 # Web Portal
-Web portal to share opinions about books.
+
+Web protal to share opinions about books. Users can rate books and add some comments. The ability to have accounts.
 
 Project for creating web application class at university.
 
