@@ -7,8 +7,10 @@ Project for creating web application class at university.
 PHP, JavaScript, CSS.
 
 # Creation date:
+12.11.2018
 
 # Created by:
 Bartlomiej Wnuk (bwnuk)
 
-#version:
+# version:
+0.0
