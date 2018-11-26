@@ -15,3 +15,6 @@ Bartlomiej Wnuk (bwnuk)
 
 ## version:
 0.0
+
+## Diagram ERD
+https://www.lucidchart.com/invitations/accept/c31c8b2c-23c5-4d88-b4f6-daaea974a5a3
