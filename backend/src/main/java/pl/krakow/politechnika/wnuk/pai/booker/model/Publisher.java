@@ -18,6 +18,7 @@ public class Publisher {
 
     private String name;
 
+
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "publisher",
             cascade = {

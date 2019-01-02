@@ -7,8 +7,9 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+
 @Entity
+@Data
 @Table(name = "authors")
 public class Author {
 
