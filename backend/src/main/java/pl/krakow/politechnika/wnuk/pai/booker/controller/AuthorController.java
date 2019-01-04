@@ -2,14 +2,12 @@ package pl.krakow.politechnika.wnuk.pai.booker.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.krakow.politechnika.wnuk.pai.booker.model.Author;
 import pl.krakow.politechnika.wnuk.pai.booker.services.AuthorService;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -24,5 +22,11 @@ public class AuthorController {
     @GetMapping("authors")
     public ResponseEntity<List<Author>> showAllAuthors(){
         return new ResponseEntity<>(authorService.getAllAuthors(), HttpStatus.OK);
+    }
+
+    @GetMapping("authors/surname")
+    public ResponseEntity<Optional<Author>> getAuthorBySurname(@PathVariable String name){
+        Optional<Author> optionalAuthor = authorService.findBySurname(name);
+        return new ResponseEntity<>(optionalAuthor, HttpStatus.FOUND);
     }
 }

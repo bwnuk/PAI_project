@@ -5,6 +5,7 @@ import pl.krakow.politechnika.wnuk.pai.booker.model.Author;
 import pl.krakow.politechnika.wnuk.pai.booker.repository.AuthorRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AuthorService {
@@ -16,5 +17,9 @@ public class AuthorService {
 
     public List<Author> getAllAuthors(){
         return authorRepository.findAll();
+    }
+
+    public Optional<Author> findBySurname(String name){
+        return authorRepository.findBySurName(name);
     }
 }
