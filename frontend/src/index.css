@@ -19,6 +19,7 @@ code {
   padding: 10px;
 }
 
+
 .square{
   margin: 50px;
   width: 250px;
@@ -26,4 +27,17 @@ code {
   background-color: cornflowerblue;
   float: left;
   text-align: center;
+  color: #ffffff;
+}
+
+.btn-xl {
+  margin: 50px;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  width:250px;
+  height:250px;
+  background-color: cornflowerblue;
+  color: #ffffff;
+  float: left;
 }
