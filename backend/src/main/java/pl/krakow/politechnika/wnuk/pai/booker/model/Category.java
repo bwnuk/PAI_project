@@ -5,6 +5,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -30,5 +32,5 @@ public class Category {
                     // w przypadku usunięcia kategorii.
             }
     )
-    private Set<Book> books = new HashSet<>();
+    private List<Book> books = new LinkedList<>();
 }
