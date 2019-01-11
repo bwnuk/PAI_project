@@ -1,11 +1,11 @@
-import { GET_BOOKS_ALL}from "../actions/types";
+import { GET_BOOKS_ALL }from "../actions/types";
 
 const initialState ={
   booksAll: []
 };
 
 export default function (state = initialState, action) {
-    switch (action.types){
+    switch (action.type){
         case GET_BOOKS_ALL:
             return{
                 ...state,
