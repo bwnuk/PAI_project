@@ -1,0 +1,10 @@
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 100px;
+}
+.form-signin{
+    margin: auto;
+    width: 50%;
+    padding: 30px;
+}
