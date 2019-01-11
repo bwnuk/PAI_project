@@ -1,0 +1,33 @@
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+.btn-xl {
+    margin: 50px;
+    padding: 10px 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    width:200px;
+    height:200px;
+    background-color: cornflowerblue;
+    color: #ffffff;
+    float: left;
+}
+
+.card{
+    margin: 50px;
+    padding: 10px 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    width:200px;
+    height:200px;
+    background-color: cornflowerblue;
+    color: #ffffff;
+    float: left;
+}
+
+p{
+    font-size: small;
+}

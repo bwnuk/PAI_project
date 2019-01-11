@@ -19,20 +19,9 @@ code {
   padding: 10px;
 }
 
-
-.square{
-  margin: 50px;
-  width: 200px;
-  height: 200px;
-  background-color: cornflowerblue;
-  float: left;
-  text-align: center;
-  color: #ffffff;
-}
-
 .btn-xl {
   margin: 50px;
-  padding: 10px 20px;
+  padding: 10px 10px;
   font-size: 20px;
   border-radius: 10px;
   width:200px;
@@ -40,4 +29,8 @@ code {
   background-color: cornflowerblue;
   color: #ffffff;
   float: left;
+}
+
+.nav .current {
+  background-color: Red;
 }

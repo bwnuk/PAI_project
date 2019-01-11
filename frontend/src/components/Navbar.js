@@ -1,4 +1,5 @@
 import React from "react";
+import "../index.css";
 
 export default function Navbar() {
     return(
@@ -20,10 +21,14 @@ export default function Navbar() {
                             <a className="nav-link" href="/category" data-target="#myModal" data-toggle="modal">Kategorie</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/search" data-target="#myModal" data-toggle="modal">Szukaj</a>
+                            <a className="nav-link" href="/search" data-target="#myModal" data-toggle="modal">
+                                Szukaj
+                            </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/login" data-target="#myModal" data-toggle="modal">Zaloguj</a>
+                            <a className="nav-link" href="/login" data-target="#myModal" data-toggle="modal">
+                                Zaloguj
+                            </a>
                         </li>
                     </ul>
                 </div>

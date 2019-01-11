@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import '../index.css'
+import './searchstyle.css'
 
 class SearchComponent extends Component{
     render(){
@@ -8,15 +8,21 @@ class SearchComponent extends Component{
                 <div className="form-signin">
                     <form>
                         <div className="form-group">
-                            <label htmlFor="formGroupExampleInput">Example label</label>
+                            <label htmlFor="formGroupExampleInput">Autor:</label>
                             <input type="text" className="form-control" id="formGroupExampleInput"
-                                   placeholder="Example input"/>
+                                   placeholder="Stephen King"/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="formGroupExampleInput2">Another label</label>
+                            <label htmlFor="formGroupExampleInput2">Tytuł:</label>
                             <input type="text" className="form-control" id="formGroupExampleInput2"
-                                   placeholder="Another input"/>
+                                   placeholder="Dwie wieże"/>
                         </div>
+                        <div className="form-group">
+                            <label htmlFor="formGroupExampleInput2">Wydawnictwo:</label>
+                            <input type="text" className="form-control" id="formGroupExampleInput2"
+                                   placeholder="Helion"/>
+                        </div>
+                        <button type="submit" className="btn btn-primary">Szukaj</button>
                     </form>
                 </div>
 
