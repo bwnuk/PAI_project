@@ -1,15 +1,15 @@
-import {GET_CATEGORIES} from "../actions/types";
+import { GET_BOOKS_ALL}from "../actions/types";
 
 const initialState ={
-    categorie: []
+  booksAll: []
 };
 
 export default function (state = initialState, action) {
-    switch (action.type){
-        case GET_CATEGORIES:
+    switch (action.types){
+        case GET_BOOKS_ALL:
             return{
                 ...state,
-                categorie: action.payload
+                booksAll: action.payload
             };
         default:
             return state;
