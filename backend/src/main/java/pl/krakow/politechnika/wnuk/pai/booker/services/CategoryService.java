@@ -23,4 +23,6 @@ public class CategoryService {
     public List<Book> getAllBooksById(Long id){
         return categoryRepository.findById(id).get().getBooks();
     }
+
+    public List<Book> getAllBooksByName(String name) {return categoryRepository.findByName(name).get().getBooks();}
 }

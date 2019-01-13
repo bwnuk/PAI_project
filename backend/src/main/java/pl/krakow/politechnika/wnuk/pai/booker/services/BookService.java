@@ -5,6 +5,7 @@ import pl.krakow.politechnika.wnuk.pai.booker.model.Book;
 import pl.krakow.politechnika.wnuk.pai.booker.repository.BookRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
@@ -20,6 +21,10 @@ public class BookService {
 
     public Book saveBook(Book book){
         return bookRepository.save(book);
+    }
+
+    public Optional<Book> findyByTitle(String title){
+        return bookRepository.findByTitle(title);
     }
 
 }

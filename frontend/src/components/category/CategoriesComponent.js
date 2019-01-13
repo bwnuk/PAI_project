@@ -4,10 +4,9 @@ import CategoryItem from "./CategoryItem"
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-<<<<<<< Updated upstream
-import { getBacklog} from "../../actions/categorieAction";
+import { getBacklog } from "../../actions/categorieAction";
 
-class CategoryComponent extends Component{
+class CategoriesComponent extends Component{
     componentDidMount(){
         this.props.getBacklog();
     }
@@ -34,28 +33,13 @@ class CategoryComponent extends Component{
         return(
             <div>
                 {CategoriesAlgo}
-=======
-import { getSingle } from "../../actions/categorieSingleAction";
-
-class CategoryComponent extends Component{
-    componentDidMount(){
-        const { c_id } = this.props.match.params;
-        this.props.getSingle(c_id);
-    }
-
-    render(){
-        return(
-            <div>
-
->>>>>>> Stashed changes
             </div>
         );
     }
 }
 
-<<<<<<< Updated upstream
 
-CategoryComponent.propTypes = {
+CategoriesComponent.propTypes = {
     getBacklog: PropTypes.func.isRequired,
     categorie: PropTypes.object.isRequired
 };
@@ -64,16 +48,4 @@ const  mapStateToProps = state =>({
     categorie: state.categorie
 });
 
-export default connect(mapStateToProps, {getBacklog})(CategoryComponent);
-=======
-CategoryComponent.propTypes ={
-    categorieId: PropTypes.object.isRequired,
-    getSingle: PropTypes.func.isRequired
-};
-
-const mapStateToProps = state =>({
-    categorieId: state.categorie.categorieId,
-});
-
-export default connect(mapStateToProps, {getSingle}) (CategoryComponent);
->>>>>>> Stashed changes
+export default connect(mapStateToProps, {getBacklog})(CategoriesComponent);

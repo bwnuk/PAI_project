@@ -11,6 +11,10 @@ export default function (state = initialState, action) {
                 ...state,
                 categorie: action.payload
             };
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         default:
             return state;
     }

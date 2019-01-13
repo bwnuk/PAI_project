@@ -7,6 +7,7 @@ import pl.krakow.politechnika.wnuk.pai.booker.model.Book;
 import pl.krakow.politechnika.wnuk.pai.booker.services.BookService;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -23,8 +24,15 @@ public class BookController {
         return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.OK);
     }
 
+    @GetMapping("books/{title}")
+    public ResponseEntity<Optional<Book>> findByTitle(@PathVariable String title){
+        Optional<Book> result = bookService.findyByTitle(title);
+        return new ResponseEntity<>(result, HttpStatus.FOUND);
+    }
+
     @PostMapping("")
     public ResponseEntity<Book>addBook(@RequestBody Book book){
         return new ResponseEntity<>(bookService.saveBook(book), HttpStatus.CREATED);
     }
+
 }
