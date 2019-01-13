@@ -1,2 +1,0 @@
-export const GET_CATEGORIES = "GET_CATEGORIES";
-export const GET_BOOKS_ALL = "GET_BOOKS_ALL";

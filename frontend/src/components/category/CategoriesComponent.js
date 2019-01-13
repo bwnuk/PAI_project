@@ -1,16 +1,12 @@
 import React, {Component} from "react";
 import '../../index.css'
 import CategoryItem from "./CategoryItem"
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { getBacklog } from "../../actions/categorieAction";
+
 
 class CategoriesComponent extends Component{
     componentDidMount(){
-        this.props.getBacklog();
-    }
 
+    }
     render(){
         const {categorie} = this.props.categorie;
 
@@ -38,14 +34,4 @@ class CategoriesComponent extends Component{
     }
 }
 
-
-CategoriesComponent.propTypes = {
-    getBacklog: PropTypes.func.isRequired,
-    categorie: PropTypes.object.isRequired
-};
-
-const  mapStateToProps = state =>({
-    categorie: state.categorie
-});
-
-export default connect(mapStateToProps, {getBacklog})(CategoriesComponent);
+export default CategoriesComponent;
