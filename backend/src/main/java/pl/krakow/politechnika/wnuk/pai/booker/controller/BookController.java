@@ -25,9 +25,15 @@ public class BookController {
     }
 
     @GetMapping("books/{title}")
-    public ResponseEntity<Optional<Book>> findByTitle(@PathVariable String title){
-        Optional<Book> result = bookService.findyByTitle(title);
-        return new ResponseEntity<>(result, HttpStatus.FOUND);
+    public ResponseEntity<Optional<List<Book>>> findByTitle(@PathVariable String title){
+        Optional<List<Book>> result = bookService.findyByTitle(title);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @GetMapping("books/publishers/{title}/{publisher}")
+    public ResponseEntity<Optional<List<Book>>> findByTitlePublisher(@PathVariable String title, @PathVariable String publisher){
+        Optional<List<Book>> result = bookService.findByTitlePublisher(title, publisher);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @PostMapping("")

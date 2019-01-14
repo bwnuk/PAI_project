@@ -9,6 +9,7 @@ import pl.krakow.politechnika.wnuk.pai.booker.model.Publisher;
 import pl.krakow.politechnika.wnuk.pai.booker.repository.PublisherRepository;
 import pl.krakow.politechnika.wnuk.pai.booker.services.PublisherService;
 
+import java.util.LinkedList;
 import java.util.List;
 
 @CrossOrigin
@@ -27,8 +28,18 @@ public class PublisherController {
     }
 
     @GetMapping("publishers/books/{name}")
-    public ResponseEntity<List<Book>> getAlllBookByName(@PathVariable String name){
-        return new ResponseEntity<>(publisherRepository.findByName(name).get().getBooks(), HttpStatus.FOUND);
+    public ResponseEntity<List<Book>> getAllBookByName(@PathVariable String name){
+        return new ResponseEntity<>(publisherRepository.findByName(name).get().getBooks(), HttpStatus.OK);
+    }
+
+    @GetMapping("publishers/authors/{name}/{firstname}/{secondname}")
+    public ResponseEntity<List<Book>> getAllBookByNameAuthor(@PathVariable String name, @PathVariable String firstname, @PathVariable String secondname){
+        List<Book> result = new LinkedList<>();
+        for(Book b: publisherRepository.findByName(name).get().getBooks()){
+            if(b.getAuthor().getFirstName().equals(firstname) || b.getAuthor().getSurName().equals(secondname))
+                result.add(b);
+        }
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 }

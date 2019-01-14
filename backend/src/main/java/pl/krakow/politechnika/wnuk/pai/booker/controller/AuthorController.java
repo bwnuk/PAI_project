@@ -7,6 +7,7 @@ import pl.krakow.politechnika.wnuk.pai.booker.model.Author;
 import pl.krakow.politechnika.wnuk.pai.booker.model.Book;
 import pl.krakow.politechnika.wnuk.pai.booker.services.AuthorService;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,12 +40,34 @@ public class AuthorController {
 
     @GetMapping("authors/books/{first}/{second}")
     public ResponseEntity<List<Book>> getAllBookByFullName(@PathVariable String first, @PathVariable String second){
-        return new ResponseEntity<>(authorService.findAllBookByName(first, second), HttpStatus.FOUND);
+        return new ResponseEntity<>(authorService.findAllBookByName(first, second), HttpStatus.OK);
+    }
+
+    @GetMapping("authors/books/{title}/{first}/{second}")
+    public ResponseEntity<List<Book>> getAllBookByFullNameTitle(@PathVariable String title, @PathVariable String first, @PathVariable String second){
+        List<Book> result = new LinkedList<>();
+        for (Book b:authorService.findAllBookByName(first, second)) {
+            if(b.getTitle().equals(title))
+                result.add(b);
+        }
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @GetMapping("authors/books/{title}/{first}/{second}/{publisher}")
+    public ResponseEntity<List<Book>> getAllBookByFullNameTitlePublisher
+            (@PathVariable String title, @PathVariable String first, @PathVariable String second, @PathVariable String publisher){
+        List<Book> result = new LinkedList<>();
+        for (Book b:authorService.findAllBookByName(first, second)) {
+            if(b.getTitle().equals(title))
+                if(b.getPublisher().getName().equals(publisher))
+                    result.add(b);
+        }
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @GetMapping("authors/books/{surname}")
     public ResponseEntity<List<Book>> getAllBookBySurName(@PathVariable String surname){
-        return new ResponseEntity<>(authorService.findAllBookBySurName(surname), HttpStatus.FOUND);
+        return new ResponseEntity<>(authorService.findAllBookBySurName(surname), HttpStatus.OK);
     }
 
 }

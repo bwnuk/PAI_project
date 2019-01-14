@@ -23,8 +23,10 @@ public class BookService {
         return bookRepository.save(book);
     }
 
-    public Optional<Book> findyByTitle(String title){
+    public Optional<List<Book>> findyByTitle(String title){
         return bookRepository.findByTitle(title);
     }
+
+    public Optional<List<Book>> findByTitlePublisher(String title, String name){return bookRepository.findBookByTitleAndPublisher_Name(title, name);}
 
 }
