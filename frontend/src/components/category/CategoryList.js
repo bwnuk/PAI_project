@@ -7,7 +7,7 @@ class CategoryList extends Component{
     mapToItem= categorie =>{
         const catid = categorie.id;
         const catname = categorie.name;
-        return<CategoryItem key={catid} catname={catname}/>
+        return<CategoryItem key={catid} catname={catname} cateid={catid}/>
     };
 
     render(){

@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import '../../index.css'
-import CategoryList from "./CategoryList"
 import axios from "axios/index";
+import CategoryList from "./CategoryList"
 
 class CategoriesComponent extends Component {
     state ={
