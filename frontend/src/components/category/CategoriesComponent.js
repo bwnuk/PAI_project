@@ -1,37 +1,34 @@
 import React, {Component} from "react";
 import '../../index.css'
-import CategoryItem from "./CategoryItem"
+import CategoryList from "./CategoryList"
+import axios from "axios/index";
 
+class CategoriesComponent extends Component {
+    state ={
+        categories: []
+    };
 
-class CategoriesComponent extends Component{
-    componentDidMount(){
-
+    componentDidMount() {
+        this.request()
     }
-    render(){
-        const {categorie} = this.props.categorie;
 
-        let CategoriesAlgo;
-        let categories = [];
+    request = async () =>{
+        await axios.get("http://localhost:8080/api/categories/all")
+            .then(res =>{this.setState({categories: res.data});})
+            .catch(error => {console.log(error)});
+    };
 
-        const Categories = categorie =>{
-            const cat = categorie.map(categorie => (<CategoryItem key={categorie.id} categorie={categorie}/>));
-            for(let i = 0; i< cat.length; i++)
-                categories.push(cat[i]);
+    render() {
+        if(!this.state.categories) {
+            return (
+                <div><a>RAZ</a></div>
+            );
+        }else {
+            const categories = this.state.categories;
             return(
-                <React.Fragment>
-                    <div className="center">
-                        {categories}
-                    </div>
-                </React.Fragment>);
-        };
-
-        CategoriesAlgo = Categories(categorie);
-        return(
-            <div>
-                {CategoriesAlgo}
-            </div>
-        );
+                <div><CategoryList categories={categories}/></div>
+            );
+        }
     }
 }
-
 export default CategoriesComponent;

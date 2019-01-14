@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import './loginstyle.css'
-import { Link } from "react-router-dom";
 
 class LoginComponent extends Component{
     render(){
@@ -20,7 +19,7 @@ class LoginComponent extends Component{
 
                     <div className="form-group form-check">
                         <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-                            <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
+                        <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
