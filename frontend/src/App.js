@@ -7,6 +7,7 @@ import TopComponent from "./components/TopComponent";
 import CategoryComponent from "./components/category/CategoriesComponent";
 import LoginComponent from "./components/LoginComponent";
 import SearchComponent from "./components/SearchComponent";
+import CategoryBook from "./components/category/CategoryBook";
 
 class App extends Component {
   render() {
@@ -16,8 +17,9 @@ class App extends Component {
             <Navbar/>
               <Route exact path="/top" component={TopComponent}/>
               <Route exact path="/categories" component={CategoryComponent}/>
-              <Route exact path="/search" component={LoginComponent}/>
-              <Route exact path="/login" component={SearchComponent}/>
+              <Route exact path="/login" component={LoginComponent}/>
+              <Route exact path="/search" component={SearchComponent}/>
+              <Route exact path="/categories/books/:cateid" component={CategoryBook}/>
           </div>
         </Router>
     );

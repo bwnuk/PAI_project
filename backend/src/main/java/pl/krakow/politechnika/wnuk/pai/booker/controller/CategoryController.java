@@ -28,11 +28,11 @@ public class CategoryController {
 
     @GetMapping("categories/{c_id}")
     public ResponseEntity<List<Book>> showAllBookById(@PathVariable long c_id){
-        return new ResponseEntity<>(categoryService.getAllBooksById(c_id), HttpStatus.FOUND);
+        return new ResponseEntity<>(categoryService.getAllBooksById(c_id), HttpStatus.OK);
     }
 
     @GetMapping("categories/books/{name}")
     public ResponseEntity<List<Book>> showAllBookByName(@PathVariable String name){
-        return new ResponseEntity<>(categoryService.getAllBooksByName(name), HttpStatus.FOUND);
+        return new ResponseEntity<>(categoryService.getAllBooksByName(name), HttpStatus.OK);
     }
 }

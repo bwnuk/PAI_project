@@ -1,0 +1,18 @@
+.btn-xl {
+    margin: 50px;
+    padding: 80px 50px;
+    font-size: 20px;
+    border-radius: 10px;
+    width:200px;
+    height:200px;
+    background-color: cornflowerblue;
+    color: #ffffff;
+    float: left;
+}
+
+
+a:hover{
+    color:#ffffff;
+    text-decoration:none;
+    cursor:pointer;
+}

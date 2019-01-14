@@ -1,11 +1,12 @@
 import React, {Component} from "react";
-import '../../index.css'
-import CategoryBook from "./CategoryBook";
+import './categoryitemstyle.css'
+import { Link } from "react-router-dom";
 
 export const CategoryItem =({catname}, {cateid})=>{
+    const val = catname;
     return(
         <div>
-            <button type="button" className="btn btn-default btn-xl" onClick={<CategoryBook catid={cateid}/>}>{catname}</button>
+            <Link className="btn btn-default btn-xl" to={"/categories/books/"+val}><a>{catname}</a></Link>
         </div>
     );
 };
