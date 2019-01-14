@@ -3,10 +3,8 @@ package pl.krakow.politechnika.wnuk.pai.booker.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import pl.krakow.politechnika.wnuk.pai.booker.model.Book;
 import pl.krakow.politechnika.wnuk.pai.booker.model.Publisher;
 import pl.krakow.politechnika.wnuk.pai.booker.repository.PublisherRepository;
 import pl.krakow.politechnika.wnuk.pai.booker.services.PublisherService;
@@ -28,5 +26,9 @@ public class PublisherController {
         return publisherRepository.findAll();
     }
 
+    @GetMapping("publishers/books/{name}")
+    public ResponseEntity<List<Book>> getAlllBookByName(@PathVariable String name){
+        return new ResponseEntity<>(publisherRepository.findByName(name).get().getBooks(), HttpStatus.FOUND);
+    }
 
 }

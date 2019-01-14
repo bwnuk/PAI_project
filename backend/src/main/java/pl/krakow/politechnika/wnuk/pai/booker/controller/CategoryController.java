@@ -26,9 +26,13 @@ public class CategoryController {
         return new ResponseEntity<>(categoryService.getAllCategories(), HttpStatus.OK);
     }
 
-    @GetMapping("categories/{id}")
-    public ResponseEntity<List<Book>> showAllBookById(@PathVariable long id){
+    @GetMapping("categories/{c_id}")
+    public ResponseEntity<List<Book>> showAllBookById(@PathVariable long c_id){
+        return new ResponseEntity<>(categoryService.getAllBooksById(c_id), HttpStatus.FOUND);
+    }
 
-        return new ResponseEntity<>(categoryService.getAllBooksById(id), HttpStatus.FOUND);
+    @GetMapping("categories/books/{name}")
+    public ResponseEntity<List<Book>> showAllBookByName(@PathVariable String name){
+        return new ResponseEntity<>(categoryService.getAllBooksByName(name), HttpStatus.FOUND);
     }
 }

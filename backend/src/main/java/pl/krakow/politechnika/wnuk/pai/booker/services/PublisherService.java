@@ -1,5 +1,6 @@
 package pl.krakow.politechnika.wnuk.pai.booker.services;
 
+import pl.krakow.politechnika.wnuk.pai.booker.model.Book;
 import pl.krakow.politechnika.wnuk.pai.booker.model.Publisher;
 import pl.krakow.politechnika.wnuk.pai.booker.repository.PublisherRepository;
 
@@ -15,4 +16,6 @@ public class PublisherService {
     public List<Publisher> getAllPublishers(){
         return publisherRepository.findAll();
     }
+
+    public List<Book> getAllBookByName(String name){return publisherRepository.findByName(name).get().getBooks();}
 }

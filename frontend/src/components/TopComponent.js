@@ -1,48 +1,35 @@
 import React, {Component} from "react";
-import '../index.css'
-import BookItem from "./book/BookItem";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { getBookslog} from "../actions/booksAllAction";
+import axios from "axios";
+import "../index.css";
+import BookList from "./Book/BookList";
 
 class TopComponent extends Component{
+    state ={
+        books: null
+    };
+
     componentDidMount(){
-        this.props.getBookslog();
+        this.request();
     }
 
-    render() {
-        const {booksAll} = this.props.booksAll;
+    request = async () =>{
+        await axios.get("http://localhost:8080/api/books/all")
+            .then(res =>{this.setState({books: res.data});})
+            .catch(error => {console.log(error)});
+    };
 
-        let BooksAlgo;
-        let books = [];
-
-        const Books = booksAll =>{
-            const cat = booksAll.map(booksAll => (<BookItem key={booksAll.id} booksAll={booksAll}/>));
-            for(let i = 0; i< cat.length; i++)
-                books.push(cat[i]);
+    render(){
+        if(!this.state.books) {
+            return (
+                <div><a>RAZ</a></div>
+            );
+        }else {
+            const books = this.state.books;
             return(
-                <React.Fragment>
-                    <div className="center">
-                        {books}
-                    </div>
-                </React.Fragment>);
-        };
-
-        BooksAlgo = Books(booksAll);
-        return(
-            <div>
-                {BooksAlgo}
-            </div>
-        );
+                <div><BookList books={books}/></div>
+            );
+        }
     }
 }
 
-TopComponent.propTypes = {
-    getBookslog: PropTypes.func.isRequired,
-    booksAll: PropTypes.object.isRequired
-};
-
-const  mapStateToProps = state =>({
-    booksAll: state.booksAll
-});
-export default connect(mapStateToProps, { getBookslog }) (TopComponent);
+export default TopComponent;
