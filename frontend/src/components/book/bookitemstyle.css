@@ -5,12 +5,15 @@
 }
 
 .card{
-    margin: 50px;
+    margin-left: 50px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     padding: 0px 5px;
     font-size: 20px;
     border-radius: 10px;
-    width:200px;
-    height:250px;
+    width: 250px;
+    height:420px;
     background-color: cornflowerblue;
     color: #ffffff;
     float: left;
