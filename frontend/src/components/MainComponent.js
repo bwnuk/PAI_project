@@ -3,7 +3,7 @@ import axios from "axios";
 import "../index.css";
 import BookList from "./book/BookList";
 
-class TopComponent extends Component{
+class MainComponent extends Component{
     state ={
         books: null
     };
@@ -13,7 +13,7 @@ class TopComponent extends Component{
     }
 
     request = async () =>{
-        await axios.get("http://localhost:8080/api/books/all/sorted")
+        await axios.get("http://localhost:8080/api/books/all")
             .then(res =>{this.setState({books: res.data});})
             .catch(error => {console.log(error)});
     };
@@ -32,4 +32,4 @@ class TopComponent extends Component{
     }
 }
 
-export default TopComponent;
+export default MainComponent;

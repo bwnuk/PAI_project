@@ -1,7 +1,6 @@
 .btn-xl {
     margin: 50px;
-    padding: 80px 50px;
-    font-size: 20px;
+    padding: 80px 20px;
     border-radius: 10px;
     width:200px;
     height:200px;
@@ -10,6 +9,10 @@
     float: left;
 }
 
+a{
+    font-size: 16px;
+    margin-right: 10px;
+}
 
 a:hover{
     color:#ffffff;

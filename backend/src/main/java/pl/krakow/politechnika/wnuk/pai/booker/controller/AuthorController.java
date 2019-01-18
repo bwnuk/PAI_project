@@ -40,13 +40,18 @@ public class AuthorController {
 
     @GetMapping("authors/books/{first}/{second}")
     public ResponseEntity<List<Book>> getAllBookByFullName(@PathVariable String first, @PathVariable String second){
-        return new ResponseEntity<>(authorService.findAllBookByName(first, second), HttpStatus.OK);
+        List<Book> result = authorService.findAllBookByName(first, second);
+        for (Book book: result) {
+            book.setSuma();
+        }
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @GetMapping("authors/books/{title}/{first}/{second}")
     public ResponseEntity<List<Book>> getAllBookByFullNameTitle(@PathVariable String title, @PathVariable String first, @PathVariable String second){
         List<Book> result = new LinkedList<>();
         for (Book b:authorService.findAllBookByName(first, second)) {
+            b.setSuma();
             if(b.getTitle().equals(title))
                 result.add(b);
         }
@@ -58,16 +63,23 @@ public class AuthorController {
             (@PathVariable String title, @PathVariable String first, @PathVariable String second, @PathVariable String publisher){
         List<Book> result = new LinkedList<>();
         for (Book b:authorService.findAllBookByName(first, second)) {
-            if(b.getTitle().equals(title))
-                if(b.getPublisher().getName().equals(publisher))
+            b.setSuma();
+            if(b.getTitle().equals(title)) {
+                if (b.getPublisher().getName().equals(publisher)) {
                     result.add(b);
+                }
+            }
         }
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @GetMapping("authors/books/{surname}")
     public ResponseEntity<List<Book>> getAllBookBySurName(@PathVariable String surname){
-        return new ResponseEntity<>(authorService.findAllBookBySurName(surname), HttpStatus.OK);
+        List<Book> result = authorService.findAllBookBySurName(surname);
+        for (Book book: result) {
+            book.setSuma();
+        }
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 }

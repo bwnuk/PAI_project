@@ -110,7 +110,7 @@ class SearchComponent extends Component{
                         <label htmlFor="formGroupExampleInput2">Tytuł:</label>
                         <input type="text" className="form-control" id="title"
                                value={this.state.title}
-                               placeholder="np. wie wieże"
+                               placeholder="np. Mroczna wieża"
                                onChange={this.onChange}/>
                     </div>
                     <div className="form-group">

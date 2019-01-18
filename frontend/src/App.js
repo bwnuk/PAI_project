@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap-grid.min.css"
 import Navbar from "./components/Navbar";
 import TopComponent from "./components/TopComponent";
+import MainComponent from "./components/MainComponent";
 import CategoryComponent from "./components/category/CategoriesComponent";
 import LoginComponent from "./components/LoginComponent";
 import SearchComponent from "./components/SearchComponent";
@@ -14,7 +15,7 @@ class App extends Component {
     return (
         <Router>
           <div className="App">
-            <Navbar/>
+            <Navbar/>              <Route exact path="/" component={MainComponent}/>
               <Route exact path="/top" component={TopComponent}/>
               <Route exact path="/categories" component={CategoryComponent}/>
               <Route exact path="/login" component={LoginComponent}/>

@@ -23,6 +23,8 @@ public class BookService {
         return bookRepository.save(book);
     }
 
+    public Optional<Book> findById(Long id){return bookRepository.findById(id);}
+
     public Optional<List<Book>> findyByTitle(String title){
         return bookRepository.findByTitle(title);
     }

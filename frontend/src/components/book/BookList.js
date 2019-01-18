@@ -9,7 +9,9 @@ export class BookList extends React.Component{
         const bookauthorfname = book.author.firstName;
         const bookauthorsname = book.author.surName;
         const bookpublisher = book.publisher.name;
-        return <BookItem key={bookkey} booktitle={booktitle} authorfname={bookauthorfname} authorsname={bookauthorsname} publisher={bookpublisher}/>
+        const booksum = book.sum;
+        return <BookItem key={bookkey} bookkey={bookkey} booktitle={booktitle} authorfname={bookauthorfname}
+                         authorsname={bookauthorsname} publisher={bookpublisher} booksum={booksum}/>
     };
 
     render(){

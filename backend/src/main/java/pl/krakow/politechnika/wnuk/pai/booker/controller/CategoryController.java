@@ -28,11 +28,19 @@ public class CategoryController {
 
     @GetMapping("categories/{c_id}")
     public ResponseEntity<List<Book>> showAllBookById(@PathVariable long c_id){
-        return new ResponseEntity<>(categoryService.getAllBooksById(c_id), HttpStatus.OK);
+        List<Book> result = categoryService.getAllBooksById(c_id);
+        for (Book book: result) {
+            book.setSuma();
+        }
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @GetMapping("categories/books/{name}")
     public ResponseEntity<List<Book>> showAllBookByName(@PathVariable String name){
-        return new ResponseEntity<>(categoryService.getAllBooksByName(name), HttpStatus.OK);
+        List<Book> result = categoryService.getAllBooksByName(name);
+        for (Book book: result) {
+            book.setSuma();
+        }
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
