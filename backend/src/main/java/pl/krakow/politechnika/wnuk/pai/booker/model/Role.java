@@ -1,5 +1,6 @@
 package pl.krakow.politechnika.wnuk.pai.booker.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,9 +15,12 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @Column(name = "name", nullable = false)
+    private String  name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "roles",
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "role",
             cascade = {
                     CascadeType.DETACH, // odłączanie kolekcji
                     CascadeType.MERGE,  // aktualizacja encji
@@ -26,6 +30,5 @@ public class Role {
                     // w przypadku usunięcia kategorii.
             }
     )
-    private List<User> rates = new LinkedList<>();
-
+    private List<User> users= new LinkedList<>();
 }
