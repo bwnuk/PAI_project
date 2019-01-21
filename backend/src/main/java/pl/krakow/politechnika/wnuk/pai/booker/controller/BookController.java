@@ -59,6 +59,14 @@ public class BookController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+    @GetMapping("books/rate/{id}")
+    public ResponseEntity<Double> getBookRate(@PathVariable Long id){
+        Book result = bookService.findById(id).get();
+        result.setSuma();
+
+        return new ResponseEntity<>(result.getSum(), HttpStatus.OK);
+    }
+
     @PostMapping("")
     public ResponseEntity<Book>addBook(@RequestBody Book book){
         return new ResponseEntity<>(bookService.saveBook(book), HttpStatus.CREATED);

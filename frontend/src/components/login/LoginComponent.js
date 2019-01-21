@@ -25,15 +25,13 @@ class LoginComponent extends Component{
             password: this.state.password
         };
 
-        console.log(newUser);
         if(this.state.password && this.state.username){
-            console.log(this.state.password + this.state.username);
             this.request();
         }
     }
 
     request = async () =>{
-        await axios.post("http://localhost:8080/api/register",
+        await axios.post("http://localhost:8080/api/login",
             {
                 username: this.state.username,
                 password: this.state.password
@@ -48,20 +46,20 @@ class LoginComponent extends Component{
                         <label htmlFor="formGroupExampleInput">Username:</label>
                         <input type="text" className="form-control" id="username"
                                value={this.state.username}
-                               placeholder="np. Stephen King"
+                               placeholder="Login"
                                onChange={this.onChange}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="formGroupExampleInput2">Password</label>
                         <input type="password" className="form-control" id="password"
                                value={this.state.password}
-                               placeholder="np. Helion"
+                               placeholder="Password"
                                onChange={this.onChange}/>
                     </div>
                     <div className="form-group form-check">
                         <a href="/registration"> SIGN UP</a>
                     </div>
-                    <button type="submit" className="btn btn-primary">Szukaj</button>
+                    <button type="submit" className="btn btn-primary">Zaloguj</button>
                 </form>
             </div>
         );

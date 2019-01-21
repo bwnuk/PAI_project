@@ -28,4 +28,14 @@ public class UserController {
         userService.saveUser(user);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
+    @PostMapping("login")
+    public ResponseEntity<Object> login(@RequestBody User user){
+        if(userService.findByName(user.getUsername()).isPresent()){
+            User res = userService.findByName(user.getUsername()).get();
+
+        }
+
+        return new ResponseEntity<>(user, HttpStatus.NOT_ACCEPTABLE);
+    }
 }

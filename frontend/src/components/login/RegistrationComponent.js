@@ -57,7 +57,7 @@ class RegistrationComponent extends Component{
                                value={this.state.password}
                                onChange={this.onChange}/>
                     </div>
-                    <button type="submit" className="btn btn-primary">Szukaj</button>
+                    <button type="submit" className="btn btn-primary">Stworz konto</button>
                 </form>
             </div>
         );
